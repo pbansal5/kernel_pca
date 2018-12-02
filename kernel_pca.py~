@@ -1,0 +1,36 @@
+from numpy import linalg as la
+import numpy as np
+from mlxtend.data import loadlocal_mnist
+
+d = 3 # for analysis in d-degree product space
+
+def kpca (data):
+    M = data.shape[0]
+    #centering data
+    mean = np.mean(data,axis=0)
+    data = data - mean[np.newaxis,:]
+
+    #defining kernel
+    kernel = lambda x,y : (np.dot(x,y))**d
+
+    #calculating K
+    K = np.zeros((M,M))
+    print (K.shape)
+    for x in range(M):
+        for y in range(x,M):
+            K[y][x] = K[x][y] = kernel(data[x],data[y])
+
+
+    #eigen values and vectors of K
+    values,vectors = la.eig(K)
+    
+    pass
+
+#loading data
+images, labels = loadlocal_mnist(
+        images_path='train-images-idx3-ubyte', 
+        labels_path='train-labels-idx1-ubyte')
+
+#sorting data according to labels
+data = np.array([images[labels == x] for x in range(10)])
+kpca(data[0])
