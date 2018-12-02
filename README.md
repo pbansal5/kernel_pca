@@ -1,6 +1,3 @@
 # kernel_pca
-run in order of 
-1. kernel_pca.py
-2. test.py
-3. svm.py
-4. result.py
+run the shell script
+errors for various dimensions and variances of the guassian kernel are in output
