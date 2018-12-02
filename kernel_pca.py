@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import h5py,pickle
 
-d = 2 # for analysis in d-degree product space
-M,N = 3000,45
+d = 4 # for analysis in d-degree product space
+M,N = 3000,75
 
 #defining kernel
 kernel = lambda x,y : (np.dot(x,y))**d
