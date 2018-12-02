@@ -1,5 +1,0 @@
-import h5py
-
-data = h5py.File('usps.h5', 'r')
-
-print (data)

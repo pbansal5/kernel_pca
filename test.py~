@@ -1,8 +1,0 @@
-import pickle
-import matplotlib.pyplot as plt
-
-with open("pca.pkl","rb") as file:
-    data = pickle.load(file)
-
-[mean,values,vectors]  = data
-
