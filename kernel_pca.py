@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import h5py,pickle
 
-d = 4 # for analysis in d-degree product space
+d = 10 # for analysis in d-degree product space
 M,N = 3000,75
 
 #defining kernel
-kernel = lambda x,y : (np.dot(x,y))**d
+kernel = lambda x,y : np.exp(-(((np.linalg.norm(x-y))/d)**2))
 
 def kpca (data):
     M = data.shape[0]

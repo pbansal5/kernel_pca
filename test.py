@@ -4,12 +4,12 @@ import numpy as np
 
 M = 3000 #number of train data
 N = 75 #number of principal components
-d = 4
+d = 10
 
 with open("pca.pkl","rb") as file:
     data = pickle.load(file)
 
-kernel = lambda x,y : (np.dot(x,y))**d
+kernel = lambda x,y : np.exp(-(((np.linalg.norm(x-y))/d)**2))
 
 [mean,values,vectors,train_data,train_labels,train_components]  = data
 
